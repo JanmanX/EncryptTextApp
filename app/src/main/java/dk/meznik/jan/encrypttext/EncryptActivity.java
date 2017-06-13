@@ -16,6 +16,7 @@ import android.widget.Toast;
 import dk.meznik.jan.encrypttext.util.Encryption;
 
 public class EncryptActivity extends Activity {
+    EditText editTextPassword;
     EditText editText1;
     EditText editText2;
     Button buttonEncrypt;
@@ -27,6 +28,7 @@ public class EncryptActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encrypt);
 
+        editTextPassword = (EditText)findViewById(R.id.editTextPassword);
         editText1 = (EditText)findViewById(R.id.editText1);
         editText2 = (EditText)findViewById(R.id.editText2);
         buttonEncrypt = (Button)findViewById(R.id.buttonEncrypt);
@@ -47,10 +49,11 @@ public class EncryptActivity extends Activity {
     }
 
     public void buttonEncryptClick(View v) {
+        String password = editTextPassword.getText().toString();
         String str = editText1.getText().toString();
         String cipher = "";
         try {
-            cipher = Encryption.encrypt("test", str);
+            cipher = Encryption.encrypt(password, str);
         } catch (Exception ex) {
             Toast.makeText(this, "could not encrypt text", Toast.LENGTH_SHORT).show();
         }
@@ -58,11 +61,12 @@ public class EncryptActivity extends Activity {
     }
 
     public void buttonDecryptClick(View v) {
+        String password = editTextPassword.getText().toString();
         String str = editText1.getText().toString();
         String plain = "";
         try {
 
-            plain = Encryption.decrypt("test", str);
+            plain = Encryption.decrypt(password, str);
 
         } catch (Exception ex) {
             Toast.makeText(this, "could not decrypt text", Toast.LENGTH_SHORT).show();
