@@ -103,4 +103,8 @@ public class EncryptActivity extends Activity {
         clipboardManager.setPrimaryClip(clipData);
         Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
     }
+
+    public void imageButtonHelpClick(View v) {
+        Toast.makeText(this, "TEST", Toast.LENGTH_SHORT).show();
+    }
 }

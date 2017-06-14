@@ -60,7 +60,6 @@ public class Encryption {
 
             byte[] cipherText = encrypt(key, ivBytes, message.getBytes(ENCODING));
 
-            //NO_WRAP is important as was getting \n at the end
             String encoded = Base64.encodeToString(cipherText, Base64.NO_WRAP);
             return encoded;
         } catch (UnsupportedEncodingException e) {
