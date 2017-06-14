@@ -2,6 +2,9 @@ package dk.meznik.jan.encrypttext;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -37,7 +40,11 @@ public class EncryptActivity extends Activity {
 
         // Set the editText with text to encrypt, depending on the intent type
         CharSequence text = "";
-        if(getIntent().getAction().equals(Intent.ACTION_SEND)) {
+
+        if(getIntent().getAction() == null) {
+            // App started from launcher
+        }
+        else if(getIntent().getAction().equals(Intent.ACTION_SEND)) {
             text = getIntent().getCharSequenceExtra(Intent.EXTRA_TEXT);
         }
         else if(getIntent().getAction().equals(Intent.ACTION_PROCESS_TEXT)) {
@@ -84,5 +91,13 @@ public class EncryptActivity extends Activity {
 
     public void buttonReplaceClick(View v) {
         exitWithResult(editText2.getText().toString());
+    }
+
+    public void editText2Click(View v) {
+        ClipboardManager clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+        String str = editText2.getText().toString();
+        ClipData clipData = ClipData.newPlainText("Encrypted text",str );
+        clipboardManager.setPrimaryClip(clipData);
+        Toast.makeText(this, "Ciphertext copied to clipboard", Toast.LENGTH_SHORT).show();
     }
 }
