@@ -86,7 +86,7 @@ public class EncryptActivity extends Activity {
             plain = Encryption.decrypt(password, str);
 
         } catch (Exception ex) {
-            Toast.makeText(this, "Unable to decrypt text.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Unable to decipher text.", Toast.LENGTH_SHORT).show();
         }
 
         editText2.setText(plain);
