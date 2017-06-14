@@ -17,13 +17,16 @@
             android:hint="Password"
             android:inputType="textPassword"
             android:textColor="#000000"
-            android:textColorHint="#292929"/>
+            android:textColorHint="#292929"
+            />
         <EditText
             android:id="@+id/editText1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minLines="5"
-            android:background="#afafaf"
+            android:gravity="top|center"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/edit_text_style"
             />
 
         <LinearLayout
@@ -63,7 +66,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minLines="5"
-            android:background="#afafaf"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/edit_text_style_dark"
+            android:enabled="false"
+            android:selectAllOnFocus="true"
             />
 
 
