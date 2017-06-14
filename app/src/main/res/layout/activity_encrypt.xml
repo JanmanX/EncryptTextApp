@@ -1,7 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/primary_dark">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -16,15 +17,17 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword"
-            android:textColor="#000000"
-            android:textColorHint="#292929"
+            android:textColor="#dddddd"
+            android:gravity="center"
+            android:textColorHint="#dddddd"
             />
         <EditText
             android:id="@+id/editText1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minLines="5"
-            android:gravity="top|center"
+            android:maxLines="10"
+            android:gravity="top"
             android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/edit_text_style"
             />
@@ -55,7 +58,6 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="Replace"
-                android:shadowColor="#ff0000"
                 android:onClick="buttonReplaceClick"
                 />
 
@@ -66,10 +68,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minLines="5"
-            android:textColor="@color/colorPrimaryDark"
+            android:maxLines="10"
+            android:textColor="#dddddd"
             android:background="@drawable/edit_text_style_dark"
             android:onClick="editText2Click"
             android:focusable="false"
+            android:gravity="top"
             />
 
 

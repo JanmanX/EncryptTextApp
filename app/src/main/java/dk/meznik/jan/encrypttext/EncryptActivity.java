@@ -24,7 +24,7 @@ public class EncryptActivity extends Activity {
     EditText editText2;
     Button buttonEncrypt;
     Button buttonDecrypt;
-
+    Button buttonReplace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,8 @@ public class EncryptActivity extends Activity {
         editText2 = (EditText)findViewById(R.id.editText2);
         buttonEncrypt = (Button)findViewById(R.id.buttonEncrypt);
         buttonDecrypt = (Button)findViewById(R.id.buttonDecrypt);
+        buttonReplace = (Button)findViewById(R.id.buttonReplace);
+        buttonReplace.setEnabled(false);
 
 
         // Set the editText with text to encrypt, depending on the intent type
@@ -49,6 +51,7 @@ public class EncryptActivity extends Activity {
         }
         else if(getIntent().getAction().equals(Intent.ACTION_PROCESS_TEXT)) {
             text = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
+            buttonReplace.setEnabled(true);
 
         }
         editText1.setText(text);
@@ -69,7 +72,7 @@ public class EncryptActivity extends Activity {
         try {
             cipher = Encryption.encrypt(password, str);
         } catch (Exception ex) {
-            Toast.makeText(this, "could not encrypt text", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Could not encrypt text: " + ex.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
         }
         editText2.setText(cipher);
     }
@@ -83,7 +86,7 @@ public class EncryptActivity extends Activity {
             plain = Encryption.decrypt(password, str);
 
         } catch (Exception ex) {
-            Toast.makeText(this, "could not decrypt text", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Unable to decrypt text.", Toast.LENGTH_SHORT).show();
         }
 
         editText2.setText(plain);
@@ -96,8 +99,8 @@ public class EncryptActivity extends Activity {
     public void editText2Click(View v) {
         ClipboardManager clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
         String str = editText2.getText().toString();
-        ClipData clipData = ClipData.newPlainText("Encrypted text",str );
+        ClipData clipData = ClipData.newPlainText("Text",str );
         clipboardManager.setPrimaryClip(clipData);
-        Toast.makeText(this, "Ciphertext copied to clipboard", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
     }
 }
