@@ -34,12 +34,19 @@ public class EncryptActivity extends Activity {
         buttonEncrypt = (Button)findViewById(R.id.buttonEncrypt);
         buttonDecrypt = (Button)findViewById(R.id.buttonDecrypt);
 
-        CharSequence text = getIntent()
-                .getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
 
+        // Set the editText with text to encrypt, depending on the intent type
+        CharSequence text = "";
+        if(getIntent().getAction().equals(Intent.ACTION_SEND)) {
+            text = getIntent().getCharSequenceExtra(Intent.EXTRA_TEXT);
+        }
+        else if(getIntent().getAction().equals(Intent.ACTION_PROCESS_TEXT)) {
+            text = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
+
+        }
         editText1.setText(text);
 
-   }
+    }
 
     public void exitWithResult(String data) {
         Intent result = new Intent();
@@ -57,7 +64,7 @@ public class EncryptActivity extends Activity {
         } catch (Exception ex) {
             Toast.makeText(this, "could not encrypt text", Toast.LENGTH_SHORT).show();
         }
-            editText2.setText(cipher);
+        editText2.setText(cipher);
     }
 
     public void buttonDecryptClick(View v) {
