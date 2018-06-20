@@ -1,0 +1,6 @@
+A simple application to encrypt text. Can be used in combination with many
+other applications, to increase security and privacy.
+
+This application can be used standalone, as well as in-place, to avoid the
+tedious application switching. To encrypt text, simply highlight the text, and
+tap "ENCRYPT TEXT" from the popup menu.
