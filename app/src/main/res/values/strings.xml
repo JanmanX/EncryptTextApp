@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">Encrypt Text</string>
-    <string name="title_activity_encrypt">Encrypt</string>
+    <string name="app_name">EncryptText</string>
+
+    <string name="encrypt">Encrypt</string>
+    <string name="decrypt">Decrypt</string>
+    <string name="password">Password</string>
+    <string name="replace">Replace</string>
 </resources>

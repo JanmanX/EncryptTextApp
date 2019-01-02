@@ -1,16 +1,11 @@
 package dk.meznik.jan.encrypttext;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,25 +26,23 @@ public class EncryptActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_encrypt);
 
-        editTextPassword = (EditText)findViewById(R.id.editTextPassword);
-        editText1 = (EditText)findViewById(R.id.editText1);
-        editText2 = (EditText)findViewById(R.id.editText2);
-        buttonEncrypt = (Button)findViewById(R.id.buttonEncrypt);
-        buttonDecrypt = (Button)findViewById(R.id.buttonDecrypt);
-        buttonReplace = (Button)findViewById(R.id.buttonReplace);
+        editTextPassword = findViewById(R.id.editTextPassword);
+        editText1 = findViewById(R.id.editText1);
+        editText2 = findViewById(R.id.editText2);
+        buttonEncrypt = findViewById(R.id.buttonEncrypt);
+        buttonDecrypt = findViewById(R.id.buttonDecrypt);
+        buttonReplace = findViewById(R.id.buttonReplace);
         buttonReplace.setEnabled(false);
 
 
         // Set the editText with text to encrypt, depending on the intent type
         CharSequence text = "";
 
-        if(getIntent().getAction() == null) {
+        if (getIntent().getAction() == null) {
             // App started from launcher
-        }
-        else if(getIntent().getAction().equals(Intent.ACTION_SEND)) {
+        } else if (getIntent().getAction().equals(Intent.ACTION_SEND)) {
             text = getIntent().getCharSequenceExtra(Intent.EXTRA_TEXT);
-        }
-        else if(getIntent().getAction().equals(Intent.ACTION_PROCESS_TEXT)) {
+        } else if (getIntent().getAction().equals(Intent.ACTION_PROCESS_TEXT)) {
             text = getIntent().getCharSequenceExtra(Intent.EXTRA_PROCESS_TEXT);
             buttonReplace.setEnabled(true);
 
@@ -97,9 +90,9 @@ public class EncryptActivity extends Activity {
     }
 
     public void editText2Click(View v) {
-        ClipboardManager clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipboardManager clipboardManager = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
         String str = editText2.getText().toString();
-        ClipData clipData = ClipData.newPlainText("Text",str );
+        ClipData clipData = ClipData.newPlainText("Text", str);
         clipboardManager.setPrimaryClip(clipData);
         Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
     }

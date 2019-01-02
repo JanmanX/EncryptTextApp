@@ -1,14 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_dark">
 
     <LinearLayout
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:minWidth="280dp"
         android:minHeight="300dp"
-        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
@@ -19,36 +18,33 @@
             <EditText
                 android:id="@+id/editTextPassword"
                 android:layout_width="0dp"
-                android:layout_weight="7"
                 android:layout_height="wrap_content"
-                android:hint="Password"
+                android:layout_weight="7"
+                android:gravity="center"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 android:textColor="#dddddd"
-                android:gravity="center"
-                android:textColorHint="#dddddd"
-                />
-            <!--
-            <ImageButton
+                android:textColorHint="#dddddd" />
+
+            <!--ImageButton
                 android:id="@+id/imageButtonHelp"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:background="@color/primary_dark"
-                android:src="@drawable/ic_help_white_24dp"
                 android:onClick="imageButtonHelpClick"
-                />
-                -->
+                android:src="@drawable/ic_help_white_24dp" /-->
         </LinearLayout>
+
         <EditText
             android:id="@+id/editText1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minLines="5"
-            android:maxLines="10"
-            android:gravity="top"
-            android:textColor="@color/colorPrimaryDark"
             android:background="@drawable/edit_text_style"
-            />
+            android:gravity="top"
+            android:maxLines="10"
+            android:minLines="5"
+            android:textColor="@color/colorPrimaryDark" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,27 +53,26 @@
             <Button
                 android:id="@+id/buttonEncrypt"
                 android:layout_width="1dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Encrypt"
-                android:onClick="buttonEncryptClick"/>
+                android:layout_weight="1"
+                android:onClick="buttonEncryptClick"
+                android:text="@string/encrypt" />
 
             <Button
                 android:id="@+id/buttonDecrypt"
                 android:layout_width="1dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Decrypt"
-                android:onClick="buttonDecryptClick"/>
+                android:layout_weight="1"
+                android:onClick="buttonDecryptClick"
+                android:text="@string/decrypt" />
 
             <Button
                 android:id="@+id/buttonReplace"
                 android:layout_width="1dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:text="Replace"
+                android:layout_weight="1"
                 android:onClick="buttonReplaceClick"
-                />
+                android:text="@string/replace" />
 
         </LinearLayout>
 
@@ -85,15 +80,13 @@
             android:id="@+id/editText2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minLines="5"
-            android:maxLines="10"
-            android:textColor="#dddddd"
             android:background="@drawable/edit_text_style_dark"
-            android:onClick="editText2Click"
             android:focusable="false"
             android:gravity="top"
-            />
-
+            android:maxLines="10"
+            android:minLines="5"
+            android:onClick="editText2Click"
+            android:textColor="#dddddd" />
 
     </LinearLayout>
 

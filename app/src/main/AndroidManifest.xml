@@ -16,18 +16,19 @@
             </intent-filter>
         </activity>
 
-
         <activity
             android:name=".EncryptActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat.Dialog"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Dialog">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
 
                 <action android:name="android.intent.action.PROCESS_TEXT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.HOME"/>
+                <category android:name="android.intent.category.HOME" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>

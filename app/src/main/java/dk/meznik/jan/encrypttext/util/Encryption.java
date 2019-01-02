@@ -1,7 +1,6 @@
 package dk.meznik.jan.encrypttext.util;
 
 import android.util.Base64;
-import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
@@ -21,18 +20,18 @@ public class Encryption {
     private static final String HASH_ALGORITHM = "SHA-256";
     private static final String SALT = "d68a1c8a0a8b8710f7c771065165867fc8e73b50ee6809a7e9f53873b38e3e0d";
 
-    private static final byte[] ivBytes = {0x42, 0x59, (byte)0xAF, 0x51, (byte)0xFF, (byte)0xB3,
-            0x02, 0x68, 0x62, (byte)0xCE,(byte) 0xDA, 0x11, 0x00, (byte)0xE9, 0x44, 0x01};
+    private static final byte[] ivBytes = {0x42, 0x59, (byte) 0xAF, 0x51, (byte) 0xFF, (byte) 0xB3,
+            0x02, 0x68, 0x62, (byte) 0xCE, (byte) 0xDA, 0x11, 0x00, (byte) 0xE9, 0x44, 0x01};
 
     private static SecretKeySpec generateKey(final String password) throws NoSuchAlgorithmException,
-                                                                    UnsupportedEncodingException {
+            UnsupportedEncodingException {
 
         // Create a SHA-256 hash of the password
         final MessageDigest digest = MessageDigest.getInstance(HASH_ALGORITHM);
 
         // Salt the password and get bytes using ENCODING.
         // It should not be necessary to salt with AES, but I do it nonetheless
-        byte[] bytes = (password+SALT).getBytes(ENCODING);
+        byte[] bytes = (password + SALT).getBytes(ENCODING);
         digest.update(bytes, 0, bytes.length);
 
         // Get the HASH
