@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Зашифровать текст</string>
+    <string name="title_activity_encrypt">Шифровать</string>
+</resources>
